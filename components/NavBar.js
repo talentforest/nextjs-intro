@@ -12,16 +12,17 @@ export default function NavBar() {
       <Link href="/about">
         <a className={router.pathname === "/about" ? "active" : ""}> About</a>
       </Link>
+
+      {/* scoped 한정 */}
       <style jsx>{`
         nav {
           background-color: tomato;
         }
         a {
           text-decoration: none;
-          color: blue;
         }
         .active {
-          color: yellow;
+          color: yellow; // props 가능
         }
       `}</style>
     </nav>
