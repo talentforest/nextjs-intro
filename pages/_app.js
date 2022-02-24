@@ -4,18 +4,19 @@
 
 import "../styles/globals.css";
 import NavBar from "../components/NavBar";
+import Layout from "../components/Layout";
+// _app.js는 코드가 간결하게 있는 게 좋기 때문에 Layout으로 props를 전달해 일을 분담한다.
 
 export default function App({ Component, pageProps }) {
   // prop을 하나 불러온다.
   return (
-    <>
-      <NavBar />
+    <Layout>
       <Component {...pageProps} />
       <style jsx global>{`
         a {
           color: white;
         }
       `}</style>
-    </>
+    </Layout>
   );
 }
