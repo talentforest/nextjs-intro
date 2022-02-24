@@ -3,7 +3,6 @@
 // _app.js 커스텀 App 컴포넌트가 있는 이곳에서만 styles폴더의 global.css파일을 import할 수 있다.
 
 import "../styles/globals.css";
-import NavBar from "../components/NavBar";
 import Layout from "../components/Layout";
 // _app.js는 코드가 간결하게 있는 게 좋기 때문에 Layout으로 props를 전달해 일을 분담한다.
 
@@ -12,11 +11,6 @@ export default function App({ Component, pageProps }) {
   return (
     <Layout>
       <Component {...pageProps} />
-      <style jsx global>{`
-        a {
-          color: white;
-        }
-      `}</style>
     </Layout>
   );
 }
