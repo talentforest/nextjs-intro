@@ -4,17 +4,21 @@ import { useRouter } from "next/router";
 
 export default function Home({ results }) {
   const router = useRouter();
-  const onClick = (id) => {
-    router.push(`/movies/${id}`);
+  const onClick = (id, title) => {
+    router.push(`/movies/${title}/${id}`); //브라우저 상에서는 마스킹 된다. 콘솔상에서는 확인 가능
   };
   return (
     <div className="container">
       <Seo title="Home" />
       {results?.map((movie) => (
-        <div onClick={() => onClick(movie.id)} className="movie" key={movie.id}>
+        <div
+          onClick={() => onClick(movie.id, movie.original_title)}
+          className="movie"
+          key={movie.id}
+        >
           <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} />
           <h4>
-            <Link href={`/movies/${movie.id}`}>
+            <Link href={`/movies/${movie.original_title}/${movie.id}`}>
               <a>{movie.original_title}</a>
             </Link>
           </h4>
